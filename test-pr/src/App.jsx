@@ -55,16 +55,16 @@ function App(){
 function Header() {
 
   const now =  new Date;
-  const hours = 7;
+  const hours = now.getHours();
 
   const open = 8;
   const close = 20;
   const isOpen = hours >= open && hours < close;
   return <header>
     <h1>Магазин Электорники</h1>
-    <p className={isOpen ? 'open': 'close'}>
-      {isOpen ? 'Магазин открыт' : 'Магазин закрыт'}
-    </p>
+    <div>
+  {isOpen ? 'Магазин открыт' : 'Магазин закрыт'}
+</div>
     <p>Текущее время: {now.toLocaleTimeString()}</p>
     <nav>
       <ul>
