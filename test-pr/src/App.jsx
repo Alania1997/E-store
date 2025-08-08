@@ -53,8 +53,28 @@ function App(){
 }
 
 function Header() {
+
+  const now =  new Date;
+  const hours = 7;
+
+  const open = 8;
+  const close = 20;
+  const isOpen = hours >= open && hours < close;
   return <header>
-    <h1>Catalog</h1>
+    <h1>Магазин Электорники</h1>
+    <p className={isOpen ? 'open': 'close'}>
+      {isOpen ? 'Магазин открыт' : 'Магазин закрыт'}
+    </p>
+    <p>Текущее время: {now.toLocaleTimeString()}</p>
+    <nav>
+      <ul>
+      <li>Home<a href="#home"></a></li>
+      <li>Catalog<a href="#catalog"></a></li>
+      <li>About<a href="#about"></a></li>
+      <li>Catalog<a href="#catalog"></a></li>
+      </ul>
+    </nav>
+    <p>Время работы: {open}:00 - {close}:00</p>
     </header>
 }
 
