@@ -4,7 +4,7 @@ import { productData } from "./productData";
 function App(){
   return <div>
     <Header/>
-    <Product/>
+    <Catalog/>
     <Footer/>
   </div>;
 
@@ -29,22 +29,44 @@ function Header() {
       <li>Home<a href="#home"></a></li>
       <li>Catalog<a href="#catalog"></a></li>
       <li>About<a href="#about"></a></li>
+      <li>Contact<a href="#contact"></a></li>
       </ul>
     </nav>
     <p className="timeOfWork">Время работы: {open}:00 - {close}:00</p>
     </header>
 }
 
-function Product(){
-const products = [...productData];  
-  return <li className="product">
-    <img src={products[0].photoName} alt={products[0].name}/>
-    <div>
-      <h3>{products[0].name}</h3>
-      <p>{products[0].description}</p>
-      <strong>{products[0].price}$</strong>
-    </div>
+function Catalog(){
+  return (
+    <main className="catalog">
+      <ul className="products">
+        <Product 
+        name="Laptop Pro"
+        img="/laptop.png"
+        price="1200"
+        description="High-performance laptop for professionals."
+        />
+        <Product 
+        name="Smartphone X"
+        img="/smartphone.png"
+        price="800"
+        description="Latest model with stunning display."
+        soldOut = {true}
+        />
+      </ul>
+    </main>
+  );
+}
 
+function Product(props){
+  return <li className="product">
+    <img src={props.img} alt={props.name}/>
+    <div>
+      <h3>{props.name}</h3>
+      <p>{props.description}</p>
+      <strong>{props.price}$</strong>
+      {props.soldOut && <p style={{ color: 'red' }}>Sold Out</p>}
+    </div>
   </li>;
 }
 
