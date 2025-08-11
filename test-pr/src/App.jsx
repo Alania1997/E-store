@@ -1,47 +1,5 @@
-const productData = [
-  {
-    name: "Laptop Pro",
-    description: "High-performance laptop for professionals.",
-    price: 1200,
-    photoName: "/laptop.png",
-    soldOut: false,
-  },
-  {
-    name: "Smartphone X",
-    description: "Latest model with stunning display.",
-    price: 800,
-    photoName: "/smartphone.png",
-    soldOut: false,
-  },
-  {
-    name: "Wireless Headphones",
-    description: "Noise-cancelling headphones with great sound quality.",
-    price: 200,
-    photoName: "/headphones.png",
-    soldOut: false,
-  },
-  {
-    name: "Smartwatch Z",
-    description: "Stylish smartwatch with fitness tracking features.",
-    price: 150,
-    photoName: "/smartwatch.png",
-    soldOut: false,
-  },
-  {
-    name: "Gaming Console",
-    description: "Powerful gaming console for endless fun.",
-    price: 400,
-    photoName: "/console.png",
-    soldOut: true,
-  },
-  {
-    name: "4K TV",
-    description: "Ultra HD television with vibrant colors.",
-    price: 1000,
-    photoName: "/tv.png",
-    soldOut: false,
-  },
-];
+import "./index.css"
+import { productData } from "./productData";
 
 function App(){
   return <div>
@@ -58,44 +16,40 @@ function Header() {
   const hours = now.getHours();
 
   const open = 8;
-  const close = 20;
+  const close = 20;  
   const isOpen = hours >= open && hours < close;
-  return <header>
+  return <header className ="header">
     <h1>Магазин Электорники</h1>
     <div>
   {isOpen ? 'Магазин открыт' : 'Магазин закрыт'}
 </div>
-    <p>Текущее время: {now.toLocaleTimeString()}</p>
-    <nav>
+    <p className="currentTime">Текущее время: {now.toLocaleTimeString()}</p>
+    <nav className="navigatoin">
       <ul>
       <li>Home<a href="#home"></a></li>
       <li>Catalog<a href="#catalog"></a></li>
       <li>About<a href="#about"></a></li>
-      <li>Catalog<a href="#catalog"></a></li>
       </ul>
     </nav>
-    <p>Время работы: {open}:00 - {close}:00</p>
+    <p className="timeOfWork">Время работы: {open}:00 - {close}:00</p>
     </header>
 }
 
 function Product(){
 const products = [...productData];  
-  return <li>Product
+  return <li className="product">
     <img src={products[0].photoName} alt={products[0].name}/>
     <div>
       <h3>{products[0].name}</h3>
       <p>{products[0].description}</p>
-      <strong>{products[0].price}</strong>
+      <strong>{products[0].price}$</strong>
     </div>
 
   </li>;
-
-
-
 }
 
 function Footer(){
-  return <footer>
+  return <footer className="footer">
     <p>All right is saved</p>
   </footer>
 }
