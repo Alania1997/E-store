@@ -68,6 +68,20 @@ function Catalog(){
         description="Stylish smartwatch with fitness tracking features."
         soldOut = {false}
         />
+        <Product 
+        name="Gaming Console"
+        img="/console.png"
+        price="400"
+        description="Powerful gaming console for endless fun."
+        soldOut = {true}
+        />
+        <Product 
+        name="4K TV"
+        img="/tv.png"
+        price= {1000 + 250}
+        description="Ultra HD television with vibrant colors."
+        soldOut = {true}
+        />
       </ul>
     </main>
   );
