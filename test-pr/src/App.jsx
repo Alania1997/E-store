@@ -40,61 +40,23 @@ function Catalog(){
   return (
     <main className="catalog">
       <ul className="products">
-        <Product 
-        name="Laptop Pro"
-        img="/laptop.png"
-        price="1200"
-        description="High-performance laptop for professionals."
-        soldOut = {false}
-        />
-        <Product 
-        name="Smartphone X"
-        img="/smartphone.png"
-        price="800"
-        description="Latest model with stunning display."
-        soldOut = {true}
-        />
-        <Product 
-        name="Wireless Headphones"
-        img="/headphones.png"
-        price="200"
-        description="Noise-cancelling headphones with great sound quality."
-        soldOut = {false}
-        />
-        <Product 
-        name="Smartwatch Z"
-        img="/smartwatch.png"
-        price="150"
-        description="Stylish smartwatch with fitness tracking features."
-        soldOut = {false}
-        />
-        <Product 
-        name="Gaming Console"
-        img="/console.png"
-        price="400"
-        description="Powerful gaming console for endless fun."
-        soldOut = {true}
-        />
-        <Product 
-        name="4K TV"
-        img="/tv.png"
-        price= {1000 + 250}
-        description="Ultra HD television with vibrant colors."
-        soldOut = {true}
-        />
+        {productData.map((product) => (
+          <Product productObj={product}/>
+        ))}
       </ul>
     </main>
   );
 }
 
 function Product(props){
+  console.log(props);
   return <li className="product">
-    <img src={props.img} alt={props.name}/>
+    <img src={props.productObj.photoName} alt={props.productObj.name}/>
     <div>
-      <h3>{props.name}</h3>
-      <p>{props.description}</p>
-      <strong>{props.price}$</strong>
-      {props.soldOut && <p style={{ color: 'red' }}>Sold Out</p>}
+      <h3>{props.productObj.name}</h3>
+      <p>{props.productObj.description}</p>
+      <strong>{props.productObj.price}$</strong>
+      {props.productObj.soldOut && <p style={{ color: 'red' }}>Sold Out</p>}
     </div>
   </li>;
 }
