@@ -2,11 +2,11 @@ import "./index.css"
 import { productData } from "./productData";
 
 function App(){
-  return <div>
+  return <>
     <Header/>
     <Catalog/>
     <Footer/>
-  </div>;
+  </>;
 
 }
 
@@ -20,9 +20,9 @@ function Header() {
   const isOpen = hours >= open && hours < close;
   return <header className ="header">
     <h1>Магазин Электорники</h1>
-    <div>
+    <>
   {isOpen ? 'Магазин открыт' : 'Магазин закрыт'}
-</div>
+</>
     <p className="currentTime">Текущее время: {now.toLocaleTimeString()}</p>
     <nav className="navigatoin">
       <ul>
@@ -48,17 +48,18 @@ function Catalog(){
   );
 }
 
-function Product(props){
-  console.log(props);
-  return <li className="product">
-    <img src={props.productObj.photoName} alt={props.productObj.name}/>
-    <div>
-      <h3>{props.productObj.name}</h3>
-      <p>{props.productObj.description}</p>
-      <strong>{props.productObj.price}$</strong>
-      {props.productObj.soldOut && <p style={{ color: 'red' }}>Sold Out</p>}
-    </div>
-  </li>;
+function Product({ productObj }){
+  return (
+    <li className={`product ${productObj.soldOut ? 'sold-out' : ''}`}>
+      <img src={productObj.photoName} alt={productObj.name}/>
+      <div>
+        <h3>{productObj.name}</h3>
+        <p>{productObj.description}</p>
+        <strong>{productObj.price}$</strong>
+        {productObj.soldOut && <p className="sold-out-text">Sold Out</p>}
+      </div>
+    </li>
+  );
 }
 
 function Footer(){

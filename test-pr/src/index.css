@@ -67,6 +67,24 @@ body {
     align-items: flex-start;
     gap: 15px;
   }
+
+  /* Карточка отсутствующего товара */
+.product.sold-out {
+  background-color: #f8f8f8;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  border: 1px solid #ccc;
+}
+
+.product.sold-out img {
+  opacity: 0.5;
+}
+
+.product.sold-out h3,
+.product.sold-out p,
+.product.sold-out strong {
+  color: #999;
+}
   
   .product img {
     width: 180px; /* Уменьшаем изображение */
