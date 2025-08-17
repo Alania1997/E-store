@@ -49,6 +49,7 @@ function Catalog(){
 }
 
 function Product({ productObj }){
+
   return (
     <li className={`product ${productObj.soldOut ? 'sold-out' : ''}`}>
       <img src={productObj.photoName} alt={productObj.name}/>
