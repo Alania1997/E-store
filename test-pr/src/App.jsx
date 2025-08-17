@@ -56,8 +56,9 @@ function Product({ productObj }){
       <div>
         <h3>{productObj.name}</h3>
         <p>{productObj.description}</p>
-        <strong>{productObj.price}$</strong>
-        {productObj.soldOut && <p className="sold-out-text">Sold Out</p>}
+        <strong>
+  {productObj.soldOut ? "Sold out" : productObj.price + `$`}
+</strong>
       </div>
     </li>
   );
